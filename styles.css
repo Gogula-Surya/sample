@@ -1,0 +1,244 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.header {
+    background-color: #e0f2f7; /* Light Teal */
+    padding: 20px;
+    text-align: center;
+    border-bottom: 1px solid #b2ebf2;
+}
+
+.header h1 {
+    margin-bottom: 5px;
+    color: #009688; /* Teal */
+}
+
+.header p {
+    color: #555;
+    font-size: 0.9em;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    padding: 20px;
+    gap: 20px;
+    background-color: #f4f4f4;
+}
+
+.product-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Important to contain the zoom */
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card legend {
+    background-color: #a1887f; /* Light Brown */
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 8px 8px 0 0;
+}
+
+.product-image-container {
+    text-align: center;
+    padding: 10px;
+    height: 200px; /* Fixed height for all product images */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Also important for the zoom effect */
+}
+
+.product-image {
+    max-width: 100%;
+    max-height: 100%; /* Ensure image fits within the container */
+    border-radius: 4px;
+    object-fit: contain; /* Or 'cover' depending on desired effect */
+    transition: transform 0.3s ease-in-out; /* Add transition for smooth zoom */
+}
+
+.product-image-container:hover .product-image {
+    transform: scale(1.1); /* Zoom in by 10% on hover */
+}
+
+.product-info {
+    padding: 15px;
+    text-align: center;
+}
+
+.product-price {
+    font-size: 1.1em;
+    color: #d32f2f; /* Red */
+    margin-bottom: 5px;
+}
+
+.product-price del {
+    color: #777;
+    margin-right: 5px;
+}
+
+.product-link {
+    color: #1976d2; /* Blue */
+    text-decoration: none;
+    font-size: 0.9em;
+}
+
+.chicken-eggs-container {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 20px;
+    background-color: #f4f4f4;
+}
+
+.chicken-section, .eggs-section {
+    background-color: #e0f2f7; /* Light Teal */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.chicken-section h2, .eggs-section h2 {
+    color: #009688; /* Teal */
+    margin-top: 0;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.chicken-images {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.chicken-images img {
+    max-width: 45%; /* Adjust for laptop view */
+    height: auto;
+    border-radius: 4px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.eggs-image-container {
+    text-align: center;
+    margin-bottom: 15px;
+    height: 150px; /* Fixed height for egg images */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Ensure zoom stays within container */
+}
+
+.eggs-image-container img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 4px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    object-fit: contain; /* Or 'cover' */
+    transition: transform 0.3s ease-in-out; /* Add transition for smooth zoom */
+}
+
+.eggs-image-container:hover img {
+    transform: scale(1.1); /* Zoom in by 10% on hover */
+}
+
+.chicken-prices table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.chicken-prices th, .chicken-prices td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #b2ebf2;
+}
+
+.chicken-prices th {
+    font-weight: bold;
+    color: #009688; /* Teal */
+}
+
+.chicken-link, .eggs-link {
+    color: #1976d2; /* Blue */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.eggs-price {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 1.1em;
+    color: #d32f2f; /* Red */
+}
+
+.footer {
+    background-color: #455a64; /* Dark Grey Blue */
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.footer fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer legend {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #fff;
+}
+
+.footer p {
+    margin: 0;
+    font-size: 0.9em;
+}
+
+/* Mobile Styles */
+@media (max-width: 600px) {
+    .header h1 {
+        font-size: 1.5em;
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .product-image-container {
+        height: auto; /* Reset height for mobile */
+    }
+
+    .chicken-images {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .chicken-images img {
+        max-width: 100%; /* Back to full width for mobile */
+    }
+
+    .footer {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+.eggs-image-container {
+        height: auto; /* Reset height for mobile */
+    }
