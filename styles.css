@@ -24,10 +24,47 @@ body {
 
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /* Define the rows - we have at least 3 rows based on 10 items */
+    grid-template-rows: auto auto auto;
     padding: 20px;
     gap: 20px;
     background-color: #f4f4f4;
+}
+
+/* Style for the first two rows to have 5 items each */
+.product-grid > *:nth-child(-n+10) { /* Select the first 10 items */
+    grid-column: span 1; /* Each item takes one column */
+}
+
+/* Adjust grid-template-columns for different screen sizes */
+@media (min-width: 1500px) { /* Adjust breakpoint as needed */
+    .product-grid {
+        grid-template-columns: repeat(5, 1fr); /* Force 5 columns */
+    }
+}
+
+@media (max-width: 1499px) and (min-width: 1200px) { /* Adjust breakpoints */
+    .product-grid {
+        grid-template-columns: repeat(4, 1fr); /* Fallback to 4 columns */
+    }
+}
+
+@media (max-width: 1199px) and (min-width: 900px) {
+    .product-grid {
+        grid-template-columns: repeat(3, 1fr); /* Fallback to 3 columns */
+    }
+}
+
+@media (max-width: 899px) and (min-width: 600px) {
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr); /* Fallback to 2 columns */
+    }
+}
+
+@media (max-width: 599px) {
+    .product-grid {
+        grid-template-columns: 1fr; /* Fallback to 1 column */
+    }
 }
 
 .product-card {
@@ -81,9 +118,15 @@ body {
     margin-bottom: 5px;
 }
 
-.product-price del {
-    color: #777;
-    margin-right: 5px;
+.old-price {
+    text-decoration: line-through;
+    color: #777; /* Optional: Style the old price with a different color */
+    margin-right: 5px; /* Add some space between the old and new price */
+}
+
+.new-price {
+    font-weight: bold; /* Optional: Make the new price stand out */
+    color: #d32f2f; /* Optional: Use the red color for the new price */
 }
 
 .product-link {
@@ -132,7 +175,7 @@ body {
 .eggs-image-container {
     text-align: center;
     margin-bottom: 15px;
-    height: 150px; /* Fixed height for egg images */
+    height: auto; /* Let it adjust based on content */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -238,7 +281,3 @@ body {
         align-items: flex-start;
     }
 }
-
-.eggs-image-container {
-        height: auto; /* Reset height for mobile */
-    }
